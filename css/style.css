@@ -12,11 +12,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(151, 124, 177);
 }
 
 main {
   text-align: center;
   max-width: 1200px;
+
 }
 
 #cards-container {
@@ -33,6 +35,7 @@ main {
   max-width: 300px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 
 .card img {
