@@ -1,5 +1,45 @@
 
 import { displayDrinks } from './helperfunctions.js';
+
+const  getDrink = async () => {
+  const input = document.querySelector('input');
+  const drinkName = input.value;
+  try {
+    const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`)
+
+    if(response.ok) {
+      const drinkData = await response.json()
+      const drinks = drinkData.drinks;
+      displayDrinks(drinks)
+      
+    }
+  } catch(error) {
+    console.log(error)
+  }
+}
+
+document.querySelector('#drinkBtn').addEventListener('click', getDrink);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // // Function to handle fetching and displaying drink data
 // function getDrink() {
 //     const input = document.querySelector('input');
@@ -74,21 +114,3 @@ import { displayDrinks } from './helperfunctions.js';
 //   }
 
 
-const  getDrink = async () => {
-  const input = document.querySelector('input');
-  const drinkName = input.value;
-  try {
-    const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkName}`)
-
-    if(response.ok) {
-      const drinkData = await response.json()
-      const drinks = drinkData.drinks;
-      displayDrinks(drinks)
-      
-    }
-  } catch(error) {
-    console.log(error)
-  }
-}
-
-document.querySelector('#drinkBtn').addEventListener('click', getDrink);
